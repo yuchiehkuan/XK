@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,10 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  @Output() total: any;
+  @Output() years: any;
+  @Output() months: any;
+  @Output() days: any;
   seven: any[] = [];
   eight: any[] = [];
   nine: any[] = [];
@@ -55,9 +59,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.items.length === 6) {
       this.isLoading = true;
     }
+    this.countDays();
   }
 
   ngAfterViewInit(): void {
   }
 
+  countDays() {
+    this.total = new Date().getTime() - new Date('2021-07-13').getTime();
+    this.total = Math.round(this.total / (1000 * 60 * 60 * 24)) + 1;
+  }
 }

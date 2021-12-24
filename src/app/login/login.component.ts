@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.form.get('password').value === 'xk0712') {
+    if (this.form.get('password').value === 'xk0713') {
         this.snackbar.open('登入成功', 'OK', { duration: 3000 });
         sessionStorage.setItem('login', 'login');
         this.router.navigate(['/home']);
