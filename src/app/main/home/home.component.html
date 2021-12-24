@@ -1,1 +1,24 @@
-<p>home works!</p>
+<mat-toolbar class="navbar">
+  <div class="divlogo2">
+    <mat-icon>favorite</mat-icon>
+  </div>
+</mat-toolbar>
+
+
+<div class="content-container">
+  <mat-spinner *ngIf="!isLoading"></mat-spinner>
+  <ng-container *ngIf="isLoading">
+    <mat-card class="example-card" *ngFor="let item of items; let i = index;">
+      <mat-card-header>
+        <mat-card-title>{{item.date | date: 'yyyy-MM'}}</mat-card-title>
+        <mat-card-subtitle>第{{i + 1}}個月</mat-card-subtitle>
+      </mat-card-header>
+      <a mat-card-content routerLink="/home/{{ item.title }}" routerLinkActive="active">
+        <img class="images" mat-card-image src="{{item.img[0]}}" [sizes]="100">
+      </a>
+      <mat-card-actions>
+        <button class="more" mat-raised-button routerLink="/home/{{ item.title }}" routerLinkActive="active">看更多</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

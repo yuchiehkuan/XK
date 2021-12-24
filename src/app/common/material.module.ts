@@ -43,7 +43,6 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatDatepickerModule,
     MatExpansionModule,
     MatProgressSpinnerModule
   ],

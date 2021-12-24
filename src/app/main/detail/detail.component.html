@@ -1,0 +1,31 @@
+<mat-toolbar class="navbar">
+  <div>
+    <button  mat-icon-button (click)="goBack()">
+      <mat-icon class="menubtn">arrow_back_ios</mat-icon>
+    </button>
+  </div>
+  <!-- <div class="divlogo2">
+    <mat-icon>favorite</mat-icon>
+  </div> -->
+</mat-toolbar>
+
+
+<div class="content-container">
+  <mat-spinner *ngIf="!isLoading"></mat-spinner>
+  <ng-container *ngIf="isLoading">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <swiper class="swiper-container" [config]="config" fxFlex="auto">
+          <div *ngFor="let slide of items[id].img" class="swiper-slide">
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+              <img class="previewimg" [src]="slide" assept="img/*">
+            </div>
+          </div>
+        </swiper>
+        <div class="swiper-pagination"></div>
+        <br>
+        <div [innerHTML]="items[id].content"></div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
